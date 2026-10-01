@@ -35,7 +35,7 @@ def carregar_recursos():
     sons = {
         "T": carregar_som("tesouro.wav"),
         "B": carregar_som("buraco.wav"),
-        "P": carregar_som("powerup.wav"),
+        "P": carregar_som("powerwup.wav"),
         "S": carregar_som("shield.wav"),
         "D": carregar_som("dobra.wav"),
     }
