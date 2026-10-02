@@ -1,7 +1,4 @@
 import pygame
-import random
-import numpy as np
-import json
 import os
 
 def carregar_recursos():
@@ -19,7 +16,7 @@ def carregar_recursos():
     def carregar_som(nome):
         caminho = os.path.join(caminho_base, nome)
         if os.path.exists(caminho):
-            return pygame.mixer.Sound(caminho)
+            return pygame.mixer.Sound(caminho) if pygame.mixer.get_init() else None
         else:
             print(f"[AVISO] Som {nome} não encontrado.")
             return None
@@ -45,7 +42,10 @@ def carregar_recursos():
 def jogar():
     """Inicializa o jogo e controla a lógica principal."""
     pygame.init()
-    pygame.mixer.init()
+    try:
+        pygame.mixer.init()
+    except pygame.error:
+        print("Audio unavailable; running the learning prototype without sound.")
 
     tamanho, lado = 8, 50
     tela = pygame.display.set_mode((tamanho * lado, (tamanho + 1) * lado))

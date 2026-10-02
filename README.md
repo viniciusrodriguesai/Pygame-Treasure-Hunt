@@ -11,7 +11,7 @@ python -m pip install -r requirements.txt
 python "jogo pygame/jogo_pygame.py"
 ```
 
-A graphical desktop and audio device are required. Assets are resolved relative to the script directory.
+A graphical desktop is required. Audio is optional: startup continues without sound if the audio backend is unavailable. Assets are resolved relative to the script directory.
 
 ## Current scope
 
@@ -21,7 +21,7 @@ The bundled media do not have a documented attribution/licensing inventory. Veri
 
 ## Validation
 
-Paths and imports were inspected during the portfolio audit. Interactive gameplay was not validated; this project should be presented as a learning prototype.
+The script was executed with Pygame 2.6.1 and SDL dummy video/audio drivers; all bundled resources loaded and a posted QUIT event ended the loop. This checks startup/resources/shutdown, not interactive gameplay. Unused NumPy imports were removed, so the prototype needs only Pygame.
 
 ## Source-code license
 
